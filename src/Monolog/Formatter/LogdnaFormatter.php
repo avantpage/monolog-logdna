@@ -11,7 +11,6 @@
 
 namespace Zwijn\Monolog\Formatter;
 
-
 /**
  * Encode records in a json format compatible with Logdna
  * @author Nicolas Vanheuverzwijn
@@ -41,10 +40,5 @@ class LogdnaFormatter extends \Monolog\Formatter\JsonFormatter
         ];
 
         return parent::format($json);
-    }
-
-    protected function getDefaultFormatter()
-    {
-        return new LogdnaFormatter();
     }
 }
