@@ -101,12 +101,4 @@ class LogdnaHandler extends \Monolog\Handler\AbstractProcessingHandler
 
         \Monolog\Handler\Curl\Util::execute($this->curl_handle, 5, false);
     }
-
-    /**
-     * @return \Zwijn\Monolog\Formatter\LogdnaFormatter
-     */
-    protected function getDefaultFormatter(): \Zwijn\Monolog\Formatter\LogdnaFormatter
-    {
-        return new \Zwijn\Monolog\Formatter\LogdnaFormatter();
-    }
 }
