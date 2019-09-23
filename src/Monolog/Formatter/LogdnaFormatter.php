@@ -11,17 +11,21 @@
 
 namespace Zwijn\Monolog\Formatter;
 
+
 /**
  * Encode records in a json format compatible with Logdna
  * @author Nicolas Vanheuverzwijn
  */
-class LogdnaFormatter extends \Monolog\Formatter\JsonFormatter {
+class LogdnaFormatter extends \Monolog\Formatter\JsonFormatter
+{
 
-    public function __construct($batchMode = self::BATCH_MODE_NEWLINES, $appendNewline = false) {
+    public function __construct($batchMode = self::BATCH_MODE_NEWLINES, $appendNewline = false)
+    {
         parent::__construct($batchMode, $appendNewline);
     }
 
-    public function format(array $record) {
+    public function format(array $record)
+    {
         $date = new \DateTime();
 
         $json = [
@@ -37,5 +41,10 @@ class LogdnaFormatter extends \Monolog\Formatter\JsonFormatter {
         ];
 
         return parent::format($json);
+    }
+
+    protected function getDefaultFormatter()
+    {
+        return new LogdnaFormatter();
     }
 }
